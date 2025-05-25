@@ -7,7 +7,7 @@
         public int DesignationCode { get; set; }
         public string? DesignationAcronym { get; set; } 
         public string DesignationName { get; set; }
-        public string Stream { get; set; } 
+        public Stream Stream { get; set; } 
         public string RolesandResponsability { get; set; }
     }
 }

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CollegeProject.Models.Designation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add New</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>S.No.</th>
+            <th>Designation Acronym</th>
+            <th>Designation Name</th>
+            <th>Staff Type</th>
+            <th>Priority</th>
+            <th>Roles & Responsibilities</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.DesignationAcronym</td>
+                    <td>@item.DesignationName</td>
+                    <td>@item.Stream</td>
+                    <td></td>
+                    <td>@item.RolesandResponsability</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr style="text-align:center;">No Record Found........</tr>
+        }
+
+    </tbody>
+</table>

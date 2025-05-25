@@ -1,0 +1,80 @@
+﻿@model CollegeProject.Models.DesignationVM
+
+@{
+    ViewData["Title"] = "Create Designation";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header ">
+            <h5 class="mb-0">Create Patient</h5>
+        </div>
+        <div class="card-body">
+            <form asp-controller="Designation" asp-action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="CollegeName" class="control-label"></label>
+                        <select asp-for="CollegeName" class="form-control">
+                            <option disabled selected>Select</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="DesignationCode" class="control-label"></label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="DesignationAcronym" class="control-label"></label><i class="text-danger">*</i>
+                        <input asp-for="DesignationAcronym" required class="form-control" />
+                        <span asp-validation-for="DesignationAcronym" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="DesignationName" class="control-label"></label><i class="text-danger">*</i>
+                        <input asp-for="DesignationName" required class="form-control" />
+                        <span asp-validation-for="DesignationName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Stream" class="control-label"></label><i class="text-danger">*</i>
+                        <select asp-for="Stream" class="form-control" asp-items="@Model.UnitList" required>
+                            <option disabled selected> Select </option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="RolesandResponsability" class="control-label"></label><i class="text-danger">*</i>
+                        <textarea asp-for="RolesandResponsability" required class="form-control"></textarea>
+                        <span asp-validation-for="RolesandResponsability" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-md-4"></div>
+                <div class="form-group col-md-10 col-sm-9 mt-2"></div>
+                <div class="form-group col-md-2 col-sm-3 d-flex justify-content-end gap-2">
+                    <input type="submit" value="Submit" class="btn btn-primary " />
+                    <a asp-controller="Designation" asp-action="Index" class="btn btn-primary">Exit</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
